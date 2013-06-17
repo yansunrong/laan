@@ -104,3 +104,8 @@ $("#tags").on('click',"li",function(e){
 
 //
 
+$(".setup").click(function(){
+    bootbox.alert("亲,是要安装吗!", function() {
+
+    });
+});

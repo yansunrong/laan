@@ -10,3 +10,8 @@
     display: inline-block;
     width:200px;
 }
+
+.item-box{
+    margin-bottom: 10px;
+    box-shadow:3px 3px 2px rgba(0,0,0,.2);
+}
