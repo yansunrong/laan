@@ -1,0 +1,12 @@
+
+
+.item-img{
+    vertical-align: top;
+    display: inline-block;
+    width:100px;
+}
+.item-desc{
+    vertical-align: top;
+    display: inline-block;
+    width:200px;
+}
