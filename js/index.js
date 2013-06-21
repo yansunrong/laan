@@ -52,7 +52,7 @@ function showDeailModal(id){
 
     for(var i = 0;i<data.length;i++){
         if(data[i].id == id){
-            var html = detailTpl(data[0]);
+            var html = detailTpl(data[i]);
             $("#game-detail-box").html(html);
             $('#game-detail').modal()
             return;
