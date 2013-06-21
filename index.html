@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>游戏列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -15,6 +14,7 @@
             padding-top: 60px;
             padding-bottom: 40px;
         }
+
         .sidebar-nav {
             padding: 9px 0;
         }
@@ -56,6 +56,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="brand" href="#">Project name</a>
+
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
                     Logged in as <a href="#" class="navbar-link">Username</a>
@@ -65,7 +66,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
+            <!--/.nav-collapse -->
         </div>
     </div>
 </div>
@@ -73,31 +75,39 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span3">
-            <div class="well sidebar-nav" id="tags">
+            <div class="well sidebar-nav" id="types">
                 <ul class="nav nav-list">
                     <li class="nav-header">标签</li>
                     <li class="active"><a href="#">全部</a></li>
-                    <li><a href="#" data-tag="a">射击类</a></li>
-                    <li><a href="#" data-tag="b">益智类</a></li>
-                    <li><a href="#" data-tag="c">成人类</a></li>
+                    <li><a href="#" data-type="射击">射击类</a></li>
+                    <li><a href="#" data-type="b">益智类</a></li>
+                    <li><a href="#" data-type="a c">成人类</a></li>
 
                     <li><a href="#">动作类</a></li>
-                    <li><a href="#" data-tag="e">射击类</a></li>
-                    <li><a href="#" data-tag="f">益智类</a></li>
-                    <li><a href="#" data-tag="g">成人类</a></li>
+                    <li><a href="#" data-type="e">射击类</a></li>
+                    <li><a href="#" data-type="f">益智类</a></li>
+                    <li><a href="#" data-type="g">成人类</a></li>
 
                 </ul>
-            </div><!--/.well -->
-        </div><!--/span-->
+            </div>
+            <!--/.well -->
+        </div>
+        <!--/span-->
         <div class="span9">
             <div class="hero-unit">
                 <h1>Laan的游戏主页,亲!!!</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+
+                <p>This is a template for a simple marketing or informational website. It includes a large callout
+                    called the hero unit and three supporting pieces of content. Use it as a starting point to create
+                    something more unique.</p>
+
                 <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
             </div>
             <div id="list-container" class="thumbnails"></div>
-        </div><!--/span-->
-    </div><!--/row-->
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
     <div id="pagination" class="pagination-box"></div>
     <hr>
 
@@ -105,30 +115,90 @@
         <p>&copy; Company 2013</p>
     </footer>
 
-</div><!--/.fluid-container-->
+</div>
+<!--/.fluid-container-->
+
+<!--列表的一个item的模板-->
 <script type="text/template" id="item-tpl">
-    <div class="span4 thumbnail item-box" >
-        <h2><%=id%><%=name%></h2>
+    <div class="span4 thumbnail item-box">
+        <h2  title="<%=name%>"><%=name%></h2>
+
         <div>
             <div class="item-img">
                 <a href="#">
-                <img src="img/game.png"/>
+                    <img src="<%=icon_57%>" width="57" height="57"/>
                 </a>
+                <span class="label label-info">
+                 类型:<%=type%>
+                </span>
             </div>
             <div class="item-desc">
-                <p>标签:[<%=tag%>]<%=desc%></p>
-                <p><a class="btn setup" href="#">安装 &raquo;</a></p>
+                <p style=""><%=desc%></p>
+                <p><a class="btn setup" href="#" data-id="<%=id%>">安装 &raquo;</a></p>
             </div>
         </div>
 
-    </div><!--/span-->
+    </div>
+    <!--/span-->
 </script>
+
+<!--详情页的模板-->
+<script type="text/template" id="game-detail-tpl">
+
+    <div class="top clearfix">
+        <div class="desc">
+            <h2><%=name%></h2>
+
+            <p><%=desc%></p>
+        </div>
+        <div class="down">
+            <img src="<%=erweima%>" width="120" alt="二维码"/>
+            <a href="<%=apk%>" class="btn btn-info btn-large" title="下载APK">下载APK</a>
+        </div>
+    </div>
+    <hr>
+
+    <div id="flash" class="flash">
+
+        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                id="flash" width="<%=swfSize.width%>" height="<%=swfSize.height%>" align="middle">
+            <param name="loop" value="true"/>
+            <param name="play" value="true"/>
+            <param name="movie" value="<%=swf%>"/>
+            <embed width="<%=swfSize.width%>" height="<%=swfSize.height%>" loop="true" play="true" align="middle"
+                   src="<%=swf%>" name="flash" type="application/x-shockwave-flash"
+                   pluginspage="http://www.macromedia.com/go/getflashplayer">
+
+            </embed>
+        </object>
+
+    </div>
+
+
+</script>
+<!--详情页的浮层-->
+<div class="modal hide fade game-detail" id="game-detail" data-backdrop="false">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>游戏详情页</h3>
+    </div>
+    <div class="modal-body" id="game-detail-box">
+<!--
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">关闭</a>
+        <a href="#" class="btn btn-primary">Save changes</a>
+    </div>
+-->
+</div>
+
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="data.js"></script>
 <script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/bootbox.js"></script>
 <script type="text/javascript" src="js/pagination.js"></script>
 <script type="text/javascript" src="js/baiduTemplate.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
