@@ -74,18 +74,9 @@
     <div class="row-fluid">
         <div class="span3">
             <div class="well sidebar-nav" id="types">
-                <ul class="nav nav-list">
-                    <li class="nav-header">标签</li>
+                <ul class="nav nav-list" id="type-ul">
+                    <li class="nav-header">分类</li>
                     <li class="active"><a href="#">全部</a></li>
-                    <li><a href="#" data-type="射击">射击类</a></li>
-                    <li><a href="#" data-type="b">益智类</a></li>
-                    <li><a href="#" data-type="a c">成人类</a></li>
-
-                    <li><a href="#">动作类</a></li>
-                    <li><a href="#" data-type="e">射击类</a></li>
-                    <li><a href="#" data-type="f">益智类</a></li>
-                    <li><a href="#" data-type="g">成人类</a></li>
-
                 </ul>
             </div>
             <!--/.well -->
@@ -139,7 +130,7 @@
 <!--详情页的模板-->
 <script type="text/template" id="game-detail-tpl">
 
-    <div class="top clearfix">
+    <div class="right clearfix">
         <div class="desc">
             <h2><%=name%></h2>
 
@@ -150,8 +141,6 @@
             <a href="<%=apk%>" class="btn btn-info btn-large" title="下载APK">下载APK</a>
         </div>
     </div>
-    <hr>
-
     <div id="flash" class="flash">
 
         <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
@@ -172,7 +161,7 @@
 
 </script>
 <!--详情页的浮层-->
-<div class="modal hide fade game-detail" id="game-detail" data-backdrop="false">
+<div class="modal hide fade game-detail" id="game-detail" data-backdrop="static">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3>游戏详情页</h3>

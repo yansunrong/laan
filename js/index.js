@@ -39,14 +39,12 @@ function renderGameList(items) {
 function filterByType(type) {
     var filterData = [];
     for (var i = 0, item; item = data[i]; i++) {
-        if (type==undefined || type.split(" ").indexOf(item.type) >-1 ) {
+        if (type==undefined || item.type.split(" ").indexOf(type) >-1 ) {
             filterData.push(item)
         }
     }
-
     renderGameList(filterData);
 }
-
 
 function showDeailModal(id){
 
@@ -60,9 +58,6 @@ function showDeailModal(id){
     }
 
 }
-
-
-
 
 renderGameList(data);
 
@@ -85,9 +80,23 @@ $(".setup").click(function(e){
     e.preventDefault()
 });
 
-
-
-
+//生成左侧的分类页
+var typelist = {};
+for(var i = 0,item;item = data[i];i++){
+    var itemTypes = item.type.split(' ');
+    for(var j = 0, itemType;itemType = itemTypes[j];j++){
+        if(typelist[itemType]){
+            typelist[itemType] = i++;
+        }else{
+            typelist[itemType] = 1;
+        }
+    }
+}
+var typelisthtml = '<li class="nav-header">分类</li><li class="active"><a href="#">全部</a></li>';
+$.each(typelist,function(i,item){
+   typelisthtml +='<li><a  href="#" data-type="'+i+'">'+i+'</a></li>';
+})
+$("#type-ul").html(typelisthtml);
 if(location.hash){
   //  alert(1)
     showDeailModal(location.hash.substring(1));
