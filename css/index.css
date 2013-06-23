@@ -37,7 +37,7 @@
 
 }
 
-.game-detail .right{float:right;width:200px;}
+.game-detail .right{float:right;padding:10px;color: #777;}
 .game-detail .desc{float: left}
 .game-detail .down{float: right;}
 

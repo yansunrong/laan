@@ -72,7 +72,7 @@ $("#types").on('click',"li",function(e){
 });
 
 // 绑定点击安装的事件
-$(".setup").click(function(e){
+$(document).on('click',".setup",function(e){
     var id = $(this).attr("data-id");
     location.hash = id;
     showDeailModal(id);
