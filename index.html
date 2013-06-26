@@ -108,7 +108,7 @@
     <div class="span4 thumbnail item-box">
         <h2  title="<%=name%>"><%=name%></h2>
 
-        <div>
+        <div style="overflow:hidden">
             <div class="item-img">
                 <a href="#">
                     <img src="<%=icon_57%>" width="57" height="57"/>
@@ -118,11 +118,10 @@
                 </span>
             </div>
             <div class="item-desc">
-                <p style=""><%=desc%></p>
-                <p><a class="btn setup" href="#" data-id="<%=id%>">查看详情 &raquo;</a></p>
+                <p title="<%=desc%>"><%=desc.length%><%=desc.substring(0,80)%></p>
             </div>
         </div>
-
+            <p class="clearfix" style="text-align: center;"><a class="btn setup" href="#" data-id="<%=id%>">查看详情 &raquo;</a></p>
     </div>
     <!--/span-->
 </script>

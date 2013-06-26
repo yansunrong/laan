@@ -2,18 +2,16 @@
 
 .item-img{
     vertical-align: top;
-    display: inline-block;
     width:100px;
     text-align: center;
     padding:3px;
+    float:left;
 }
 .item-desc{
     vertical-align: top;
-    display: inline-block;
-    width:200px;
 
 }
-.item-desc p{overflow: hidden;height:127px;}
+.item-desc p{overflow: hidden;}
 
 .item-box{
     margin-bottom: 10px;
