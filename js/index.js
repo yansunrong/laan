@@ -75,7 +75,7 @@ $("#types").on('click',"li",function(e){
 $(document).on('click',".setup",function(e){
     var id = $(this).attr("data-id");
     location.hash = id;
-    showDeailModal(id);
+    showDetailModal(id);
     e.stopPropagation()
     e.preventDefault()
 });
