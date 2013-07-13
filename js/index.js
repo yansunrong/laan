@@ -46,7 +46,7 @@ function filterByType(type) {
     renderGameList(filterData);
 }
 
-function showDeailModal(id){
+function showDetailModal(id){
 
     for(var i = 0;i<data.length;i++){
         if(data[i].id == id){
@@ -75,7 +75,7 @@ $("#types").on('click',"li",function(e){
 $(document).on('click',".setup",function(e){
     var id = $(this).attr("data-id");
     location.hash = id;
-    showDeailModal(id);
+    showDetailModal(id);
     e.stopPropagation()
     e.preventDefault()
 });
@@ -99,5 +99,7 @@ $.each(typelist,function(i,item){
 $("#type-ul").html(typelisthtml);
 if(location.hash){
   //  alert(1)
-    showDeailModal(location.hash.substring(1));
+    var hash = location.hash.replace(/^#([^#]+).*/,'$1');
+    location.hash="#"+hash;
+    showDetailModal(hash);
 }
