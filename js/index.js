@@ -53,10 +53,11 @@ function showDetailModal(id){
             var html = detailTpl(data[i]);
             $("#game-detail-box").html(html);
             $('#game-detail').modal()
+             setTimeout(function(){bdShare.fn.init()},200);
             return;
         }
     }
-
+   
 }
 
 renderGameList(data);
